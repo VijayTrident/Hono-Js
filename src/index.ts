@@ -1,15 +1,17 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import { connectDB } from './config/db.js'
+import bookRoutes from './routes/books.js'
 
 const app = new Hono()
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+app.route('/books', bookRoutes)
+
+await connectDB()
 
 serve({
   fetch: app.fetch,
   port: 3000
 }, (info) => {
-  console.log(`Server is running on http://localhost:${info.port}`)
+  console.log(`Bookstore API running on http://localhost:${info.port}`)
 })
