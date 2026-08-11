@@ -47,7 +47,6 @@ src/
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd "Hono Js"
 
 # Install dependencies
 npm install
