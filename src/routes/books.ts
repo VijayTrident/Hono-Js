@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { asyncHandler } from '../utils/asyncHandler.js'
 import {
   getAllBooks,
   getBookById,
@@ -10,11 +11,11 @@ import {
 
 const bookRoutes = new Hono()
 
-bookRoutes.get('/', getAllBooks)
-bookRoutes.get('/:id', getBookById)
-bookRoutes.post('/', createBook)
-bookRoutes.put('/:id', replaceBook)
-bookRoutes.patch('/:id', updateBook)
-bookRoutes.delete('/:id', deleteBook)
+bookRoutes.get('/', asyncHandler(getAllBooks))
+bookRoutes.get('/:id', asyncHandler(getBookById))
+bookRoutes.post('/', asyncHandler(createBook))
+bookRoutes.put('/:id', asyncHandler(replaceBook))
+bookRoutes.patch('/:id', asyncHandler(updateBook))
+bookRoutes.delete('/:id', asyncHandler(deleteBook))
 
 export default bookRoutes
