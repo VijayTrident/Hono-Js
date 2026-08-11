@@ -179,23 +179,6 @@ logger.debug('Debug info') // Only in development
 | `API_BASE_PATH` | /api | API base path |
 | `LOG_LEVEL` | debug | Logging level (debug, info, warn, error) |
 
-## 📖 Documentation
-
-For detailed information, see:
-
-- **[ERROR_HANDLING.md](./ERROR_HANDLING.md)** - Comprehensive error handling guide
-- **[QUICK_REFERENCE.md](./QUICK_REFERENCE.md)** - Quick lookup and common patterns
-- **[IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md)** - Technical architecture and design
-- **[CHANGELOG.md](./CHANGELOG.md)** - Complete list of changes
-
-## 🛠️ Development
-
-### File Structure
-- Controllers contain business logic
-- Routes define endpoints
-- Middleware handles cross-cutting concerns
-- Utils provide shared functionality
-
 ### Adding New Endpoints
 
 1. Create controller method:
