@@ -42,12 +42,6 @@ src/
 
 ## 🚀 Quick Start
 
-### Prerequisites
-
-- Node.js (v18+)
-- MongoDB (running locally or remote)
-- npm or yarn
-
 ### Installation
 
 ```bash
