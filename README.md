@@ -1,6 +1,6 @@
 # Hono.js Bookstore API
 
-A production-ready REST API built with **Hono.js** and **MongoDB** for managing a bookstore. Features comprehensive error handling, input validation, environment-based configuration, and structured logging.
+A production-ready REST API built with **Hono.js** and **MongoDB** for managing a bookstore.
 
 ## ✨ Features
 
@@ -222,36 +222,6 @@ export const getBookById = async (c: Context) => {
 // Register route with async handler
 bookRoutes.get('/:id', asyncHandler(getBookById))
 ```
-
-## ✅ Input Validation
-
-The project includes built-in validators for common scenarios:
-
-```typescript
-import { 
-  validateRequired, 
-  validateEmail, 
-  validateNumber, 
-  validateMin 
-} from '../utils/validator.js'
-
-// Required field
-validateRequired(title, 'Title')
-
-// Email format
-validateEmail(email, 'Email')
-
-// Numeric value
-validateNumber(price, 'Price')
-
-// Minimum value
-validateMin(price, 0, 'Price')
-
-// Length constraints
-validateMinLength(description, 10, 'Description')
-validateMaxLength(description, 500, 'Description')
-```
-
 ## 📝 Logging
 
 The logger provides colored output with different severity levels:
@@ -284,31 +254,6 @@ For detailed information, see:
 - **[QUICK_REFERENCE.md](./QUICK_REFERENCE.md)** - Quick lookup and common patterns
 - **[IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md)** - Technical architecture and design
 - **[CHANGELOG.md](./CHANGELOG.md)** - Complete list of changes
-
-## 🧪 Testing
-
-### Test Health Check
-```bash
-curl http://localhost:3000/api/health
-```
-
-### Test Error Handling (400)
-```bash
-curl -X POST http://localhost:3000/api/books \
-  -H "Content-Type: application/json" \
-  -d '{ "title": "Book" }'
-# Missing required fields
-```
-
-### Test Not Found (404)
-```bash
-curl http://localhost:3000/api/books/invalid-id
-```
-
-### Test Success (200)
-```bash
-curl http://localhost:3000/api/books
-```
 
 ## 🛠️ Development
 
@@ -343,44 +288,3 @@ export const newEndpoint = async (c: Context) => {
 ```typescript
 routes.get('/endpoint', asyncHandler(newEndpoint))
 ```
-
-## 📊 Project Stats
-
-- **Files:** 14 TypeScript files
-- **Error Classes:** 7
-- **Validators:** 8
-- **Logger Levels:** 4
-- **Middleware:** 1 global error handler
-- **Documentation:** 4 guides
-
-## 🔐 Security Features
-
-- Input validation on all endpoints
-- Type-safe configuration
-- Secure error messages (no stack traces in production)
-- Request context logging
-- Error tracking and reporting
-
-## 🚀 Production Deployment
-
-Before deploying to production:
-
-1. Set `NODE_ENV=production`
-2. Update `LOG_LEVEL` to `info`
-3. Configure `MONGO_URI` for production database
-4. Ensure all required environment variables are set
-5. Run tests and verify all endpoints
-6. Review security settings
-
-## 📞 Support
-
-For issues or questions:
-
-1. Check documentation files in project root
-2. Review error messages and stack traces
-3. Check `QUICK_REFERENCE.md` for common patterns
-4. See `ERROR_HANDLING.md` for detailed information
-
-## 📝 License
-
-This project is part of the Vijay Projects collection.
