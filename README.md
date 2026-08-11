@@ -120,67 +120,6 @@ curl http://localhost:3000/api/books
 ```bash
 curl http://localhost:3000/api/books/507f1f77bcf86cd799439011
 ```
-
-**Create Book:**
-```bash
-curl -X POST http://localhost:3000/api/books \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "The Hobbit",
-    "author": "J.R.R. Tolkien",
-    "price": 12.99,
-    "genre": "Fantasy"
-  }'
-```
-
-**Update Book (Partial):**
-```bash
-curl -X PATCH http://localhost:3000/api/books/507f1f77bcf86cd799439011 \
-  -H "Content-Type: application/json" \
-  -d '{ "price": 14.99 }'
-```
-
-**Delete Book:**
-```bash
-curl -X DELETE http://localhost:3000/api/books/507f1f77bcf86cd799439011
-```
-
-## 🔍 Response Format
-
-### Success Response (200, 201)
-
-```json
-{
-  "success": true,
-  "data": {
-    "id": "507f1f77bcf86cd799439011",
-    "title": "The Hobbit",
-    "author": "J.R.R. Tolkien",
-    "price": 12.99,
-    "genre": "Fantasy"
-  },
-  "message": "Book retrieved successfully",
-  "statusCode": 200,
-  "timestamp": "2026-08-11T12:00:00Z"
-}
-```
-
-### Error Response (400, 404, 500)
-
-```json
-{
-  "success": false,
-  "error": {
-    "message": "Book not found",
-    "statusCode": 404,
-    "details": { "id": "507f1f77bcf86cd799439011" }
-  },
-  "timestamp": "2026-08-11T12:00:00Z",
-  "path": "/api/books/507f1f77bcf86cd799439011",
-  "method": "GET"
-}
-```
-
 ## 🛡️ Error Handling
 
 All errors are handled consistently and return appropriate HTTP status codes:
