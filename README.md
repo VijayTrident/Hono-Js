@@ -2,7 +2,7 @@
 
 A production-ready REST API built with **Hono.js** and **MongoDB** for managing a bookstore.
 
-## ✨ Features
+## Features
 
 - **Error Handling** - Custom error classes with consistent formatting
 - **Input Validation** - Built-in field validators for all types
@@ -14,7 +14,7 @@ A production-ready REST API built with **Hono.js** and **MongoDB** for managing 
 - **Async Handlers** - Try-catch wrapper for all route handlers
 - **Health Check** - Built-in health check endpoint
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -40,7 +40,7 @@ src/
 └── index.ts               # Application entry point
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -90,7 +90,7 @@ curl http://localhost:3000/api/health
 # Response: { "status": "ok", "timestamp": "2026-08-11T12:00:00Z" }
 ```
 
-## 📚 API Endpoints
+## API Endpoints
 
 ### Books
 
@@ -114,7 +114,7 @@ curl http://localhost:3000/api/books
 ```bash
 curl http://localhost:3000/api/books/507f1f77bcf86cd799439011
 ```
-## 🛡️ Error Handling
+## Error Handling
 
 All errors are handled consistently and return appropriate HTTP status codes:
 
@@ -154,53 +154,4 @@ export const getBookById = async (c: Context) => {
 
 // Register route with async handler
 bookRoutes.get('/:id', asyncHandler(getBookById))
-```
-## 📝 Logging
-
-The logger provides colored output with different severity levels:
-
-```typescript
-import { logger } from '../utils/logger.js'
-
-logger.info('User created', { userId: '123' })
-logger.warn('Cache miss', { key: 'books' })
-logger.error('Database error', error)
-logger.debug('Debug info') // Only in development
-```
-
-## 🔧 Environment Variables
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `PORT` | 3000 | Server port |
-| `HOST` | localhost | Server hostname |
-| `MONGO_URI` | mongodb://localhost:27017/bookstore | MongoDB connection URL |
-| `NODE_ENV` | development | Environment (development, production, test) |
-| `API_BASE_PATH` | /api | API base path |
-| `LOG_LEVEL` | debug | Logging level (debug, info, warn, error) |
-
-### Adding New Endpoints
-
-1. Create controller method:
-```typescript
-export const newEndpoint = async (c: Context) => {
-  // Validation
-  validateRequired(input, 'Field')
-  
-  // Business logic
-  const result = await Model.findOne()
-  
-  // Error handling
-  if (!result) {
-    throw new NotFoundError('Resource')
-  }
-  
-  // Success response
-  return sendSuccess(c, result)
-}
-```
-
-2. Add route:
-```typescript
-routes.get('/endpoint', asyncHandler(newEndpoint))
 ```
